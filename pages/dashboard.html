@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Panitia — Run Festival 2026</title>
+<link rel="stylesheet" href="../styles/style.css"><link rel="stylesheet" href="../styles/dashboard.css">
+</head>
+<body>
+<header class="topbar"><div class="container topbar-inner">
+  <a class="logo" href="../index.html">🏃 RUN<span>FEST</span> 2026</a>
+  <input type="checkbox" id="navToggle" class="nav-toggle">
+  <label for="navToggle" class="hamburger" aria-label="Buka menu">☰</label>
+  <nav class="nav" id="authArea">
+    <a href="../index.html">Beranda</a><a href="dashboard.html" class="active">Dashboard</a>
+    <a href="scan.html">Scan / Verifikasi</a><a href="podium.html">Podium</a>
+  </nav>
+</div></header>
+<main class="container" style="padding-top:24px">
+  <h1 style="margin:0">Dashboard Panitia</h1>
+  <p class="muted">Pantau race pack, finish, dan medali secara realtime (data demo di localStorage).</p>
+
+  <p class="small muted" style="margin:0">Klik kartu untuk memfilter tabel di bawah. Angka utama hanya peserta resmi via GForm.</p>
+  <section class="grid grid4" style="margin:16px 0">
+    <div class="card stat clickable" data-filter="all"><b id="sTotal">–</b><p>Total peserta resmi (via GForm)</p><p class="small muted" id="sTotalNote"></p><span class="lihat">Lihat daftar →</span></div>
+    <div class="card stat clickable" data-filter="racepack"><b id="sRacepack">–</b><p>Sudah ambil race pack</p><span class="lihat">Lihat siapa saja →</span></div>
+    <div class="card stat clickable" data-filter="finish"><b id="sFinish">–</b><p>Sudah finish</p><span class="lihat">Lihat siapa saja →</span></div>
+    <div class="card stat clickable" data-filter="medali"><b id="sMedali">–</b><p>Sudah ambil medali</p><span class="lihat">Lihat siapa saja →</span></div>
+  </section>
+
+  <section class="card" style="margin-bottom:16px">
+    <h3>Progres acara</h3>
+    <div class="bar-row"><span style="width:150px">Race pack</span><div class="bar"><i id="barRacepack" style="width:0%"></i></div><b id="tRacepack">0%</b></div>
+    <div class="bar-row" style="margin-top:8px"><span style="width:150px">Finish</span><div class="bar blue"><i id="barFinish" style="width:0%"></i></div><b id="tFinish">0%</b></div>
+    <div class="bar-row" style="margin-top:8px"><span style="width:150px">Medali + sertifikat</span><div class="bar green"><i id="barMedali" style="width:0%"></i></div><b id="tMedali">0%</b></div>
+  </section>
+
+  <section class="card">
+    <div class="toolbar">
+      <div><label>Kategori</label><select id="fKategori"><option value="">Semua</option><option>Dewasa</option><option>Anak-Anak</option></select></div>
+      <div><label>Status</label><select id="fStatus"><option value="">Semua</option><option value="racepack">Sudah race pack</option><option value="belum-racepack">Belum race pack</option><option value="finish">Sudah finish</option><option value="medali">Sudah ambil medali</option><option value="belum-medali">Finish, belum medali</option></select></div>
+      <div><label>Sumber pendaftaran</label><select id="fSumber"><option value="gform">Via GForm (resmi)</option><option value="">Semua (termasuk web)</option><option value="web">Register web saja — belum GForm</option></select></div>
+      <div><label>Cari nama / BIB / email</label><input id="fCari" placeholder="cth: Budi / RF-101"></div>
+      <div style="flex:0"><button class="btn ghost" id="btnReset">Reset Data Demo</button></div>
+    </div>
+    <p class="small muted" id="countRow" style="margin-top:14px"></p>
+    <div style="overflow:auto"><table>
+      <thead><tr><th>Peserta</th><th>Kategori</th><th>Sumber</th><th>Race Pack</th><th>Finish</th><th>Medali</th><th>Juara / Kostum</th><th>Aksi</th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table></div>
+  </section>
+</main>
+<script src="../scripts/data.js"></script><script src="../scripts/auth.js"></script><script src="../scripts/dashboard.js"></script>
+</body></html>

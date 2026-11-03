@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podium & Kostum — Run Festival 2026</title>
+<link rel="stylesheet" href="../styles/style.css"><link rel="stylesheet" href="../styles/home.css">
+</head>
+<body>
+<header class="topbar"><div class="container topbar-inner">
+  <a class="logo" href="../index.html">🏃 RUN<span>FEST</span> 2026</a>
+  <input type="checkbox" id="navToggle" class="nav-toggle">
+  <label for="navToggle" class="hamburger" aria-label="Buka menu">☰</label>
+  <nav class="nav" id="authArea">
+    <a href="../index.html">Beranda</a><a href="dashboard.html">Dashboard</a><a href="podium.html" class="active">Podium</a>
+  </nav>
+</div></header>
+<main class="container" style="padding-top:24px">
+  <h1 style="margin:0">🏆 Podium & Kostum Terbaik</h1>
+  <p class="muted">Juara 1–3 tiap kategori mendapat hadiah khusus. Data ini berubah otomatis saat panitia mengaturnya di halaman Scan.</p>
+  <section class="grid grid2" style="margin:16px 0">
+    <div class="card"><h2>Podium Dewasa</h2><div class="podium" id="podDewasa" style="margin-top:12px"></div></div>
+    <div class="card"><h2>Podium Anak-Anak</h2><div class="podium" id="podAnak" style="margin-top:12px"></div></div>
+  </section>
+  <section class="card">
+    <h2>🎭 Kostum Terbaik</h2>
+    <p class="small muted">Suvenir / hadiah khusus untuk kostum peserta paling menarik.</p>
+    <div style="overflow:auto"><table>
+      <thead><tr><th>Peserta</th><th>Kostum</th><th>Status</th></tr></thead>
+      <tbody id="kostumList"></tbody>
+    </table></div>
+  </section>
+</main>
+<script src="../scripts/data.js"></script><script src="../scripts/auth.js"></script><script src="../scripts/podium.js"></script>
+</body></html>

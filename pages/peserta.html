@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Peserta — Run Festival 2026</title>
+<link rel="stylesheet" href="../styles/style.css">
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="container topbar-inner">
+  <a class="logo" href="../index.html">🏃 RUN<span>FEST</span> 2026</a>
+  <input type="checkbox" id="navToggle" class="nav-toggle">
+  <label for="navToggle" class="hamburger" aria-label="Buka menu">☰</label>
+  <nav class="nav" id="authArea">
+    <a href="../index.html">Beranda</a><a href="peserta.html" class="active">QR Saya</a><a href="podium.html">Podium</a>
+  </nav>
+</div></header>
+<main class="container" style="padding-top:24px">
+  <h1 style="margin:0">Dashboard Peserta</h1>
+  <p class="muted">Satu QR untuk semua loket: sekretariat (race pack) dan loket medali.</p>
+  <section class="card" id="pesertaBox" style="margin:16px 0">Memuat…</section>
+  <section class="card">
+    <h2>Jejak alur saya</h2>
+    <ul class="timeline" id="timeline"></ul>
+    <p class="small muted">Catatan: medali + sertifikat hanya bisa diambil setelah statusmu tercatat finish oleh panitia.</p>
+  </section>
+</main>
+<script src="../scripts/data.js"></script><script src="../scripts/auth.js"></script><script src="../scripts/qrcode.js"></script><script src="../scripts/peserta.js"></script>
+</body></html>

@@ -1,0 +1,29 @@
+/* auth.css — hanya untuk login.html & register.html */
+.auth-wrap {
+    max-width: 480px;
+    margin: 36px auto;
+}
+.auth-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+}
+.auth-card h1 {
+    margin: 6px 0 4px;
+    font-size: 30px;
+}
+.demo {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 13px;
+    margin-top: 16px;
+}
+.demo code {
+    background: #eef2f7;
+    padding: 2px 6px;
+    border-radius: 6px;
+}

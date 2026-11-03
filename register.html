@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Daftar Akun — Run Festival 2026</title>
+        <link rel="stylesheet" href="styles/style.css" />
+        <link rel="stylesheet" href="styles/auth.css" />
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="container topbar-inner">
+                <a class="logo" href="index.html"
+                    >🏃 RUN<span>FEST</span> 2026</a
+                >
+                <input type="checkbox" id="navToggle" class="nav-toggle" />
+                <label for="navToggle" class="hamburger" aria-label="Buka menu"
+                    >☰</label
+                >
+                <nav class="nav">
+                    <a href="index.html">Beranda</a
+                    ><a href="login.html">Masuk</a>
+                </nav>
+            </div>
+        </header>
+        <main class="container">
+            <div class="auth-wrap">
+                <div class="auth-card">
+                    <span class="kicker">Akun peserta (statis)</span>
+                    <h1>Daftar Akun</h1>
+                    <p class="muted small">
+                        Akun login prototipe. Pendaftaran lomba resminya
+                        tetap lewat link Google Form panitia.
+                    </p>
+                    <div class="alert">
+                        ⚠️ <b>Register di web ini saja belum cukup.</b> Akun
+                        baru berstatus <b>"Web saja — belum isi GForm"</b> dan
+                        <b>tidak dihitung</b> sebagai peserta sampai kamu
+                        mengisi GForm dan dikonfirmasi panitia. Setelah buat
+                        akun, isi GForm dari dashboard peserta kamu.
+                    </div>
+                    <div id="msg"></div>
+                    <form id="formReg">
+                        <label>Nama lengkap</label
+                        ><input
+                            id="nama"
+                            required
+                            placeholder="Nama sesuai KTP / kartu pelajar"
+                        />
+                        <label>Email</label
+                        ><input type="email" id="email" required />
+                        <label>Password</label
+                        ><input
+                            type="password"
+                            id="pass"
+                            required
+                            minlength="6"
+                        />
+                        <label>Kategori</label>
+                        <select id="kategori">
+                            <option>Dewasa</option>
+                            <option>Anak-Anak</option>
+                        </select>
+                        <p class="small muted">
+                            Jarak disamakan: 5K  <!-- Dewasa = 10K, Anak-Anak = 3. -->
+                        </p>
+                        <div class="form-row">
+                            <div>
+                                <label>Telepon</label
+                                ><input
+                                    id="telp"
+                                    placeholder="08xx-xxxx-xxxx"
+                                />
+                            </div>
+                            <div>
+                                <label>Ukuran kaos</label
+                                ><select id="kaos">
+                                    <option>XS</option>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                    <option>XL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button
+                            class="btn"
+                            style="
+                                width: 100%;
+                                justify-content: center;
+                                margin-top: 18px;
+                            "
+                            type="submit"
+                        >
+                            Buat Akun & QR Saya →
+                        </button>
+                    </form>
+                    <p
+                        class="small"
+                        style="text-align: center; margin-top: 14px"
+                    >
+                        Sudah punya akun? <a href="login.html">Masuk</a>
+                    </p>
+                </div>
+            </div>
+        </main>
+        <script src="scripts/data.js"></script>
+        <script src="scripts/auth.js"></script>
+        <script>
+            document
+                .getElementById("formReg")
+                .addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const email = document.getElementById("email").value.trim();
+                    if (
+                        allUsers().some(
+                            (u) =>
+                                u.email.toLowerCase() === email.toLowerCase(),
+                        )
+                    ) {
+                        document.getElementById("msg").innerHTML =
+                            '<div class="alert err">Email ini sudah terdaftar. Silakan masuk.</div>';
+                        return;
+                    }
+                    const list = loadPeserta();
+                    const nums = list.map((p) =>
+                        parseInt(p.bib.split("-")[1], 10),
+                    );
+                    const bib = "RF-" + (Math.max(...nums) + 1);
+                    const nama = document.getElementById("nama").value.trim();
+                    const kategori = document.getElementById("kategori").value;
+                    const jarak =  "5k"; // kategori === "Anak-Anak" ? "3K" : "10K";
+                    list.push({
+                        bib,
+                        nama,
+                        kategori,
+                        jarak,
+                        email,
+                        telepon: document.getElementById("telp").value.trim(),
+                        kaos: document.getElementById("kaos").value,
+                        sumber: "web",
+                        racepack: "belum",
+                        finish: "belum",
+                        waktu: "",
+                        medali: "belum",
+                        sertifikat: "belum",
+                        juara: 0,
+                        kostum: "-",
+                        kostumDesc: "",
+                    });
+                    savePeserta(list);
+                    const users = extraUsers();
+                    users.push({
+                        email,
+                        pass: document.getElementById("pass").value,
+                        role: "peserta",
+                        nama,
+                        bib,
+                    });
+                    localStorage.setItem("RF_USERS", JSON.stringify(users));
+                    setSession({ email, role: "peserta", nama, bib });
+                    location.href = "pages/peserta.html";
+                });
+        </script>
+    </body>
+</html>

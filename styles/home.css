@@ -1,0 +1,83 @@
+/* home.css — hanya untuk landing index.html */
+.hero {
+    background: linear-gradient(120deg, #111827, #ff6a00 130%);
+    color: #fff;
+    border-radius: 24px;
+    padding: 44px 32px;
+    margin: 24px 0;
+}
+.hero h1 {
+    font-size: 52px;
+    line-height: 0.95;
+    margin: 10px 0 12px;
+    max-width: 680px;
+}
+.hero p {
+    max-width: 640px;
+    color: #ffe8d6;
+    font-size: 18px;
+}
+.hero .btn {
+    background: #fff;
+    color: #111827;
+}
+.hero .btn.ghost {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+@media (max-width: 640px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+    .hero {
+        padding: 28px 20px;
+    }
+}
+.podium {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1fr;
+    gap: 12px;
+    align-items: end;
+}
+.podium > div {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+}
+.podium .first {
+    order: 2;
+    border-top: 8px solid var(--yellow);
+    padding-bottom: 32px;
+}
+.podium .second {
+    order: 1;
+    border-top: 8px solid #cbd5e1;
+}
+.podium .third {
+    order: 3;
+    border-top: 8px solid #d97706;
+}
+.podium .podium-rank {
+    font-weight: 800;
+}
+.podium .podium-name {
+    font-weight: 800;
+    font-size: 18px;
+    margin-top: 6px;
+}
+.podium .podium-meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+@media (max-width: 640px) {
+    .podium {
+        grid-template-columns: 1fr;
+    }
+    .podium > div {
+        order: 0;
+    }
+}

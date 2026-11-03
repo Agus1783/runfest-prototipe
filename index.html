@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Run Festival 2026 — Lomba Lari Dewasa & Anak-Anak</title>
+        <link rel="stylesheet" href="styles/style.css" />
+        <link rel="stylesheet" href="styles/home.css" />
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="container topbar-inner">
+                <a class="logo" href="index.html"
+                    >🏃 RUN<span>FEST</span> 2026</a
+                >
+                <input type="checkbox" id="navToggle" class="nav-toggle">
+                <label for="navToggle" class="hamburger" aria-label="Buka menu">☰</label>
+                <nav class="nav" id="authArea">
+                    <a href="pages/podium.html">Podium & Kostum</a>
+                    <a href="login.html">Masuk</a>
+                    <a href="register.html">Daftar Akun</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="hero">
+                <span class="kicker" style="color: #ffd9a8"
+                    >Lomba lari • Dewasa & Anak-Anak • Kostum terbaik</span
+                >
+                <h1>Lari bareng.<br />Finish bareng.<br />Rayakan bareng.</h1>
+                <p id="eventDate"></p>
+                <p>
+                    Dari daftar lewat Google Form, ambil race pack di
+                    sekretariat, sampai pulang bawa medali, sertifikat — dan
+                    mungkin hadiah juara.
+                </p>
+                <div
+                    style="
+                        display: flex;
+                        gap: 10px;
+                        flex-wrap: wrap;
+                        margin-top: 18px;
+                    "
+                >
+                    <a
+                        class="btn"
+                        id="gformBtn"
+                        href="#"
+                        target="_blank"
+                        rel="noopener"
+                        >📝 Daftar via Google Form</a
+                    >
+                    <a class="btn ghost" href="login.html"
+                        >Masuk / Lihat QR Saya</a
+                    >
+                    <a class="btn ghost" href="pages/podium.html"
+                        >🏆 Lihat Podium</a
+                    >
+                </div>
+            </section>
+
+            <p class="small muted" style="margin: 0 0 8px">
+                Klik kartu untuk melihat daftar namanya di Dashboard Panitia:
+            </p>
+            <section class="grid grid4" style="margin-bottom: 20px">
+                <a
+                    class="card stat"
+                    href="pages/dashboard.html?status=all&sumber=gform"
+                    ><b class="big" id="statTotal">–</b>
+                    <p class="muted">Total peserta resmi (via GForm)</p>
+                    <p class="small muted" id="statTotalNote"></p>
+                    <span class="lihat">Lihat daftar peserta →</span></a
+                >
+                <a
+                    class="card stat"
+                    href="pages/dashboard.html?status=racepack&sumber=gform"
+                    ><b class="big" id="statRacepack">–</b>
+                    <p class="muted">Sudah ambil race pack</p>
+                    <span class="lihat">Lihat siapa saja →</span></a
+                >
+                <a
+                    class="card stat"
+                    href="pages/dashboard.html?status=finish&sumber=gform"
+                    ><b class="big" id="statFinish">–</b>
+                    <p class="muted">Sudah finish</p>
+                    <span class="lihat">Lihat siapa saja →</span></a
+                >
+                <a
+                    class="card stat"
+                    href="pages/dashboard.html?status=medali&sumber=gform"
+                    ><b class="big" id="statMedali">–</b>
+                    <p class="muted">Sudah ambil medali</p>
+                    <span class="lihat">Lihat siapa saja →</span></a
+                >
+            </section>
+
+            <section class="card" style="margin-bottom: 20px">
+                <h2>Alur peserta — dari daftar sampai pulang</h2>
+                <div class="flow" style="margin-top: 12px">
+                    <div class="step">
+                        <b>1️⃣</b><strong>Daftar via GForm</strong>
+                        <p class="small muted">
+                            Isi data diri, pilih kategori Dewasa / Anak-Anak,
+                            dan jarak lari.
+                        </p>
+                    </div>
+                    <div class="step">
+                        <b>2️⃣</b><strong>Ambil Race Pack</strong>
+                        <p class="small muted">
+                            Di sekretariat: nomor peserta (BIB) + totebag + air
+                            minum. Tunjukkan QR.
+                        </p>
+                    </div>
+                    <div class="step">
+                        <b>3️⃣</b><strong>Lomba & Finish</strong>
+                        <p class="small muted">
+                            Start sesuai kategori. Panitia mencatat waktu finish
+                            lewat QR.
+                        </p>
+                    </div>
+                    <div class="step">
+                        <b>4️⃣</b><strong>Medali + Sertifikat</strong>
+                        <p class="small muted">
+                            Hanya untuk peserta yang sampai finish. Tunjukkan QR
+                            di loket.
+                        </p>
+                    </div>
+                    <div class="step">
+                        <b>5️⃣</b><strong>Podium & Kostum</strong>
+                        <p class="small muted">
+                            Juara 1–3 tiap kategori + suvenir/hadiah khusus
+                            pemenang kostum terbaik.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid grid2" style="margin-bottom: 20px">
+                <div class="card">
+                    <h2>Kategori & Hadiah</h2>
+                    <ul>
+                        <li>
+                            <!--<b>Dewasa — 5K & 10K:</b> Juara 1, 2, 3
+                            masing-masing dapat hadiah khusus.-->
+                            <b>Dewasa:</b>
+                            <br>
+                                Juara 1: Rp. 3.000.000 + hadiah khusus.
+                            <br>
+                                Juara 2: Rp. 2.000.000 + hadiah khusus.
+                            <!--</br>-->
+                            <br>
+                                Juara 3: Rp. 1.000.000 + hadiah khusus.
+                            <!--</br>-->
+                        </li>
+                        <li>
+                            <!--<b>Anak-Anak — 3K:</b> Juara 1, 2, 3 masing-masing
+                            dapat hadiah khusus.-->
+                            <b>Anak-Anak — 3K:</b>
+                            <br> Juara 1: Rp. 1.000.000 + hadiah khusus.
+                            <br> Juara 2: Rp. 750.000 + hadiah khusus.
+                            <br> Juara 3: Rp. 500.000 + hadiah khusus.
+                        </li>
+                        <li>
+                            <b>Kostum Terbaik:</b> suvenir / hadiah khusus untuk
+                            peserta dengan kostum paling menarik (semua
+                            kategori).
+                        </li>
+                        <li><b>Semua finisher:</b> medali + sertifikat.</li>
+                    </ul>
+                    <a
+                        class="btn"
+                        id="gformBtn2"
+                        href="#"
+                        target="_blank"
+                        rel="noopener"
+                        >Daftar Sekarang via GForm →</a
+                    >
+                </div>
+                <div class="card">
+                    <h2>🎭 Pemenang Kostum Terbaik</h2>
+                    <p id="kostumWinner" class="muted">Memuat…</p>
+                    <p class="small muted">
+                        Kostum dinilai panitia saat lomba berlangsung. Pemenang
+                        diumumkan di panggung utama.
+                    </p>
+                </div>
+            </section>
+
+            <section class="grid grid2" style="margin-bottom: 20px">
+                <div class="card">
+                    <h2>🏆 Podium Dewasa</h2>
+                    <div
+                        class="podium"
+                        id="podiumDewasa"
+                        style="margin-top: 12px"
+                    ></div>
+                </div>
+                <div class="card">
+                    <h2>🏆 Podium Anak-Anak</h2>
+                    <div
+                        class="podium"
+                        id="podiumAnak"
+                        style="margin-top: 12px"
+                    ></div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Buat panitia</h2>
+                <p class="muted">
+                    Masuk sebagai panitia untuk memverifikasi race pack, finish,
+                    medali, juara, dan kostum lewat pemindaian QR / BIB.
+                </p>
+                <p>
+                    <a class="btn blue" href="pages/scan.html"
+                        >Buka Halaman Scan Panitia →</a
+                    >
+                    <a class="btn ghost" href="pages/dashboard.html"
+                        >Dashboard Panitia →</a
+                    >
+                </p>
+                <p class="small muted">
+                    Akun demo panitia: <code>panitia@runfest.id</code> /
+                    <code>panitia123</code> &nbsp;•&nbsp; Peserta:
+                    <code>budi@runfest.id</code> / <code>peserta123</code>
+                </p>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                Run Festival 2026 — prototipe statis (HTML + CSS + JS, data di
+                localStorage). Ganti link GForm di
+                <code>scripts/data.js</code> (GFORM_URL).
+            </div>
+        </footer>
+        <script src="scripts/data.js"></script>
+        <script src="scripts/auth.js"></script>
+        <script src="scripts/script.js"></script>
+    </body>
+</html>
