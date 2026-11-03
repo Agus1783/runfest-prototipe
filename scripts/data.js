@@ -6,7 +6,7 @@
 const GFORM_URL = "https://forms.gle/PASTE-LINK-GFORM-DISINI";
 const EVENT_NAME = "Run Festival 2026";
 const EVENT_DATE =
-  "Minggu, 15 Februari 2026 • 05.30 WIB • Sekretariat & Start/Finish: Lapangan Utama";
+  "Minggu, 8 November 2026 • 05.30 WIB • Sekretariat & Start/Finish: Lapangan Utama";
 
 const SEED = [
   {
