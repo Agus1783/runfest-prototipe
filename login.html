@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Masuk — RunFest v2</title>
+<link rel="stylesheet" href="styles/style.css"><link rel="stylesheet" href="styles/auth.css">
+</head>
+<body>
+<header class="topbar"><div class="container topbar-inner">
+  <a class="logo" href="index.html">🏃 RUN<span>FEST</span></a>
+  <input type="checkbox" id="navToggle" class="nav-toggle">
+  <label for="navToggle" class="hamburger" aria-label="Buka menu">☰</label>
+  <nav class="nav"><a href="index.html">Beranda</a><a href="pages/podium.html">Podium</a><a href="daftar.html">Daftar Event</a></nav>
+</div></header>
+<main class="container"><div class="auth-wrap"><div class="auth-card">
+  <span class="kicker">RunFest v2</span><h1>Masuk</h1>
+  <p class="muted small">Akun statis untuk prototipe. Tiap role diarahkan ke meja kerjanya sendiri.</p>
+  <div id="msg"></div>
+  <form id="formLogin">
+    <label>Email</label><input type="email" id="email" required placeholder="admin@runfest.id">
+    <label>Password</label><input type="password" id="pass" required placeholder="••••••••">
+    <button class="btn" style="width:100%;justify-content:center;margin-top:18px" type="submit">Masuk →</button>
+  </form>
+  <p class="small" style="text-align:center;margin-top:14px">Peserta baru? <a href="daftar.html">Daftar event langsung</a> atau <a href="register.html">buat akun dulu</a></p>
+  <div class="demo"><b>Akun demo</b><br>
+    Admin: <code>admin@runfest.id</code> / <code>admin123</code><br>
+    Pendaftaran: <code>daftar@runfest.id</code> / <code>daftar123</code><br>
+    Race Pack: <code>racepack@runfest.id</code> / <code>racepack123</code><br>
+    Medali: <code>medali@runfest.id</code> / <code>medali123</code><br>
+    Peserta: <code>budi@runfest.id</code> / <code>peserta123</code></div>
+</div></div></main>
+<script src="scripts/data.js"></script><script src="scripts/auth.js"></script>
+<script>
+document.getElementById("formLogin").addEventListener("submit", e => {
+  e.preventDefault();
+  const u = login(document.getElementById("email").value, document.getElementById("pass").value);
+  if (!u) { document.getElementById("msg").innerHTML = '<div class="alert err">Email / password salah. Coba akun demo di bawah.</div>'; return; }
+  location.href = ROLE_HOME[u.role];
+});
+</script>
+</body></html>

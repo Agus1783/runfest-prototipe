@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meja Race Pack — RunFest v2</title>
+<link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+<header class="topbar"><div class="container topbar-inner">
+  <a class="logo" href="../index.html">🏃 RUN<span>FEST</span></a>
+  <input type="checkbox" id="navToggle" class="nav-toggle">
+  <label for="navToggle" class="hamburger" aria-label="Buka menu">☰</label>
+  <nav class="nav" id="authArea">
+    <a href="../index.html">Beranda</a><a href="racepack.html" class="active">Race Pack</a><a href="podium.html">Podium</a>
+  </nav>
+</div></header>
+<main class="container" style="padding-top:24px">
+  <h1 style="margin:0">Meja Race Pack</h1>
+  <p class="muted">Hanya untuk role Race Pack dan Admin. Isi paket: nomor peserta (BIB) + totebag + air minum. Hanya peserta lunas dan sudah daftar ulang yang boleh ambil.</p>
+  <section class="card" style="margin:16px 0">
+    <label style="margin-top:0">Event</label><select id="eventSelect"></select>
+    <label>Cari BIB / QR / nama</label>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><input id="inputCari" placeholder="cth: RUNFEST|EVT-2027|RF27-102|...  atau  RF27-102" style="flex:1;min-width:220px"><button class="btn" id="btnCari">🔍 Cari</button></div>
+  </section>
+  <div id="msg" style="margin:12px 0"></div>
+  <section class="card" id="hasilCari" style="margin-bottom:16px"><p class="muted">Hasil pencarian akan muncul di sini.</p></section>
+  <section class="card">
+    <h2>Antrean Race Pack: Lunas + Daftar Ulang, Belum Ambil</h2>
+    <div style="overflow:auto"><table><thead><tr><th>Peserta</th><th>Kategori</th><th>BIB</th><th>Aksi</th></tr></thead><tbody id="tbodyAntrean"></tbody></table></div>
+  </section>
+</main>
+<script src="../scripts/data.js"></script><script src="../scripts/auth.js"></script><script src="../scripts/racepack.js"></script>
+</body></html>

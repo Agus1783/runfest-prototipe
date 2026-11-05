@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podium & Kostum — RunFest v2</title>
+<link rel="stylesheet" href="../styles/style.css"><link rel="stylesheet" href="../styles/home.css">
+</head>
+<body>
+<header class="topbar"><div class="container topbar-inner">
+  <a class="logo" href="../index.html">🏃 RUN<span>FEST</span></a>
+  <input type="checkbox" id="navToggle" class="nav-toggle">
+  <label for="navToggle" class="hamburger" aria-label="Buka menu">☰</label>
+  <nav class="nav" id="authArea">
+    <a href="../index.html">Beranda</a><a href="dashboard.html">Dashboard</a><a href="podium.html" class="active">Podium</a>
+  </nav>
+</div></header>
+<main class="container" style="padding-top:24px">
+  <h1 style="margin:0">🏆 Podium & Kostum Terbaik</h1>
+  <p class="muted">Juara dihitung otomatis dari waktu finish tercepat per kategori (hanya finisher). Kostum terbaik tetap manual.</p>
+  <section class="card" style="margin:16px 0">
+    <label style="margin-top:0">Pilih event</label>
+    <select id="eventSelect"></select>
+  </section>
+  <section id="podiumBox"></section>
+  <section class="card" style="margin-top:16px">
+    <h2>🎭 Kostum Terbaik</h2>
+    <p class="small muted">Pemenang mendapat souvenir / hadiah khusus.</p>
+    <div style="overflow:auto"><table>
+      <thead><tr><th>Peserta</th><th>Kategori</th><th>Kostum</th><th>Status</th></tr></thead>
+      <tbody id="kostumList"></tbody>
+    </table></div>
+  </section>
+</main>
+<script src="../scripts/data.js"></script><script src="../scripts/auth.js"></script><script src="../scripts/podium.js"></script>
+</body></html>

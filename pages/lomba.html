@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lomba: Start & Finish — RunFest v2</title>
+<link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+<header class="topbar"><div class="container topbar-inner">
+  <a class="logo" href="../index.html">🏃 RUN<span>FEST</span></a>
+  <input type="checkbox" id="navToggle" class="nav-toggle">
+  <label for="navToggle" class="hamburger" aria-label="Buka menu">☰</label>
+  <nav class="nav" id="authArea">
+    <a href="../index.html">Beranda</a><a href="dashboard.html">Dashboard</a><a href="lomba.html" class="active">Lomba</a><a href="podium.html">Podium</a>
+  </nav>
+</div></header>
+<main class="container" style="padding-top:24px;max-width:900px">
+  <h1 style="margin:0">Lomba: Start & Finish</h1>
+  <p class="muted">Hanya admin. Satu tombol Start per event (berlaku untuk semua peserta event itu). Waktu finish dihitung otomatis sejak Start ditekan, dan Juara 1–3 per kategori dihitung ulang otomatis.</p>
+  <section class="card" style="margin:16px 0">
+    <label style="margin-top:0">Event</label><select id="eventSelect"></select>
+  </section>
+  <section class="card" id="raceStartBox" style="margin-bottom:16px">Memuat status lomba…</section>
+  <section class="card" style="margin-bottom:16px">
+    <label style="margin-top:0">Cari peserta (BIB / QR / nama)</label>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><input id="inputCari" placeholder="cth: RF27-103  atau  RUNFEST|EVT-2027|RF27-103|..." style="flex:1;min-width:220px"><button class="btn" id="btnCari">🔍 Cari</button></div>
+  </section>
+  <div id="msg" style="margin:12px 0"></div>
+  <section class="card" id="hasilCari" style="margin-bottom:16px"><p class="muted">Hasil pencarian akan muncul di sini.</p></section>
+  <section class="card">
+    <h2>Finisher Event Ini (urut waktu tercepat)</h2>
+    <div style="overflow:auto"><table><thead><tr><th>Peserta</th><th>Kategori</th><th>Waktu</th><th>Juara</th></tr></thead><tbody id="tbodyFinisher"></tbody></table></div>
+  </section>
+</main>
+<script src="../scripts/data.js"></script><script src="../scripts/auth.js"></script><script src="../scripts/lomba.js"></script>
+</body></html>

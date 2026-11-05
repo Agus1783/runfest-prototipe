@@ -1,0 +1,10 @@
+/* dashboard.css v2 */
+.stat b{font-size:32px;display:block}
+.stat p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
+.toolbar > div{flex:1;min-width:180px}
+.toolbar label{margin:0 0 4px}
+.bar-row{display:flex;align-items:center;gap:10px;font-size:13px}
+.bar{height:12px;background:#eef2f7;border-radius:99px;flex:1;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--orange)}
+.bar.blue i{background:var(--blue)} .bar.green i{background:var(--green)}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Peserta — RunFest v2</title>
+<link rel="stylesheet" href="../styles/style.css">
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="container topbar-inner">
+  <a class="logo" href="../index.html">🏃 RUN<span>FEST</span></a>
+  <input type="checkbox" id="navToggle" class="nav-toggle">
+  <label for="navToggle" class="hamburger" aria-label="Buka menu">☰</label>
+  <nav class="nav" id="authArea">
+    <a href="../index.html">Beranda</a><a href="peserta.html" class="active">Pendaftaran Saya</a><a href="podium.html">Podium</a>
+  </nav>
+</div></header>
+<main class="container" style="padding-top:24px">
+  <h1 style="margin:0">Dashboard Peserta</h1>
+  <p class="muted">Semua pendaftaranmu di semua event, dalam satu tempat. Satu QR per pendaftaran — QR memuat event + BIB.</p>
+  <p><a class="btn" href="../daftar.html">+ Daftar Event Lain</a></p>
+  <div id="msg" style="margin:12px 0"></div>
+  <section id="listBox">Memuat…</section>
+</main>
+<script src="../scripts/data.js"></script><script src="../scripts/auth.js"></script><script src="../scripts/qrcode.js"></script><script src="../scripts/peserta.js"></script>
+</body></html>

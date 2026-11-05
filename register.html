@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buat Akun — RunFest v2</title>
+<link rel="stylesheet" href="styles/style.css"><link rel="stylesheet" href="styles/auth.css">
+</head>
+<body>
+<header class="topbar"><div class="container topbar-inner">
+  <a class="logo" href="index.html">🏃 RUN<span>FEST</span></a>
+  <input type="checkbox" id="navToggle" class="nav-toggle">
+  <label for="navToggle" class="hamburger" aria-label="Buka menu">☰</label>
+  <nav class="nav"><a href="index.html">Beranda</a><a href="login.html">Masuk</a><a href="daftar.html">Daftar Event</a></nav>
+</div></header>
+<main class="container"><div class="auth-wrap"><div class="auth-card">
+  <span class="kicker">Akun peserta (statis)</span><h1>Buat Akun</h1>
+  <p class="muted small">Akun ini saja belum mendaftarkanmu ke lomba. Setelah akun jadi, daftar event lewat dashboard peserta atau halaman Daftar Event.</p>
+  <div id="msg"></div>
+  <form id="formReg">
+    <label>Nama lengkap</label><input id="nama" required>
+    <label>Email</label><input type="email" id="email" required>
+    <label>Password</label><input type="password" id="pass" required minlength="6">
+    <button class="btn" style="width:100%;justify-content:center;margin-top:18px" type="submit">Buat Akun →</button>
+  </form>
+  <p class="small" style="text-align:center;margin-top:14px">Sudah punya akun? <a href="login.html">Masuk</a> • Mau langsung daftar lomba? <a href="daftar.html">Daftar Event</a></p>
+</div></div></main>
+<script src="scripts/data.js"></script><script src="scripts/auth.js"></script>
+<script>
+document.getElementById("formReg").addEventListener("submit", e => {
+  e.preventDefault();
+  const email = document.getElementById("email").value.trim();
+  if (allUsers().some(u => u.email.toLowerCase() === email.toLowerCase())) {
+    document.getElementById("msg").innerHTML = '<div class="alert err">Email ini sudah terdaftar. Silakan masuk.</div>'; return;
+  }
+  const nama = document.getElementById("nama").value.trim();
+  const users = extraUsers();
+  users.push({ email, pass: document.getElementById("pass").value, role:"peserta", nama });
+  localStorage.setItem("RF2_USERS", JSON.stringify(users));
+  setSession({ email, role:"peserta", nama });
+  location.href = "pages/peserta.html";
+});
+</script>
+</body></html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RunFest — Lomba Lari Multi-Event</title>
+<link rel="stylesheet" href="styles/style.css"><link rel="stylesheet" href="styles/home.css">
+</head>
+<body>
+<header class="topbar"><div class="container topbar-inner">
+  <a class="logo" href="index.html">🏃 RUN<span>FEST</span></a>
+  <input type="checkbox" id="navToggle" class="nav-toggle">
+  <label for="navToggle" class="hamburger" aria-label="Buka menu">☰</label>
+  <nav class="nav" id="authArea">
+    <a href="pages/podium.html">Podium & Kostum</a>
+    <a href="daftar.html">Daftar Event</a>
+    <a href="login.html">Masuk</a>
+  </nav>
+</div></header>
+<main class="container">
+  <section class="hero">
+    <span class="kicker" style="color:#ffd9a8">Multi-event • HM • FM • 5K • 10K • Anak</span>
+    <h1>Lari bareng.<br>Finish bareng.<br>Rayakan bareng.</h1>
+    <p id="eventInfo"></p>
+    <p>Daftar langsung di web ini, bayar di web ini, lalu ambil race pack, finish, dan pulang bawa medali + sertifikat. Tanpa Google Form.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+      <a class="btn" href="daftar.html">📝 Daftar Event Ini</a>
+      <a class="btn ghost" href="login.html">Masuk / Lihat QR Saya</a>
+      <a class="btn ghost" href="pages/podium.html">🏆 Lihat Podium</a>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:20px">
+    <label style="margin-top:0">Pilih event</label>
+    <select id="eventSelect"></select>
+    <p class="small muted">Semua angka, kategori, dan podium di halaman ini mengikuti event yang dipilih.</p>
+  </section>
+
+  <section class="grid grid4" style="margin-bottom:20px">
+    <a class="card stat" href="pages/dashboard.html"><b class="big" id="statResmi">–</b><p class="muted">Peserta resmi (lunas)</p><span class="lihat">Lihat daftar →</span></a>
+    <a class="card stat" href="pages/racepack.html"><b class="big" id="statRacepack">–</b><p class="muted">Sudah ambil race pack</p><span class="lihat">Lihat antrean →</span></a>
+    <a class="card stat" href="pages/lomba.html"><b class="big" id="statFinish">–</b><p class="muted">Sudah finish</p><span class="lihat">Lihat lomba →</span></a>
+    <a class="card stat" href="pages/medali.html"><b class="big" id="statMedali">–</b><p class="muted">Sudah ambil medali</p><span class="lihat">Lihat antrean →</span></a>
+  </section>
+
+  <section class="card" style="margin-bottom:20px">
+    <h2>Kategori & Harga — <span id="katEventNama"></span></h2>
+    <div style="overflow:auto"><table>
+      <thead><tr><th>Kategori</th><th>Jarak</th><th>Harga</th><th>Kuota</th><th>Terdaftar (lunas)</th></tr></thead>
+      <tbody id="katTbody"></tbody>
+    </table></div>
+    <p class="small muted">Harga bisa diubah admin di halaman Kelola Event & Kategori. Harga peserta yang sudah daftar tidak ikut berubah.</p>
+  </section>
+
+  <section class="card" style="margin-bottom:20px">
+    <h2>Alur peserta</h2>
+    <div class="flow" style="margin-top:12px">
+      <div class="step"><b>1️⃣</b><strong>Daftar Melalui Sistem</strong><p class="small muted">Pilih event & kategori, isi data diri, dapat invoice.</p></div>
+      <div class="step"><b>2️⃣</b><strong>Pembayaran di Sistem</strong><p class="small muted">QRIS / VA / e-wallet (simulasi). Lunas = peserta resmi.</p></div>
+      <div class="step"><b>3️⃣</b><strong>Daftar Ulang + Race Pack</strong><p class="small muted">Meja pendaftaran sekretariat, untuk pengambilan race pack: BIB + totebag + air minum.</p></div>
+      <div class="step"><b>4️⃣</b><strong>Start & Finish</strong><p class="small muted">Satu tombol Start per event. Waktu finish dihitung otomatis.</p></div>
+      <div class="step"><b>5️⃣</b><strong>Medali & Podium</strong><p class="small muted">Medali + sertifikat untuk finisher. Penentuan Juara otomatis dihitung melalui sistem.</p></div>
+    </div>
+  </section>
+
+  <section class="grid grid2" style="margin-bottom:20px">
+    <div class="card"><h2>🏆 Podium — <span id="podEventNama"></span></h2><div id="podiumList"></div></div>
+    <div class="card">
+      <h2>🎭 Pemenang Kostum Terbaik</h2>
+      <p id="kostumWinner" class="muted">Memuat…</p>
+      <p class="small muted">Kostum dinilai panitia, pemenang diumumkan di panggung dan mendapat souvenir.</p>
+      <!--<h2 style="margin-top:16px">Petugas</h2>-->
+      <!--<p class="muted small">Tiap meja kerja punya halaman sendiri: Pendaftaran, Race Pack, Medali, dan Lomba (admin). Login dengan akun demo di halaman Masuk.</p>-->
+    </div>
+    <div class="card">
+      <!--<h2>🎭 Pemenang Kostum Terbaik</h2>
+      <p id="kostumWinner" class="muted">Memuat…</p>
+      <p class="small muted">Kostum dinilai panitia, pemenang diumumkan di panggung dan mendapat souvenir.</p>-->
+      <h2 style="margin-top:16px">Petugas</h2>
+      <p class="muted small">Tiap meja kerja punya halaman sendiri: Pendaftaran, Race Pack, Medali, dan Lomba (admin). Login dengan akun demo di halaman Masuk.</p>
+    </div>
+    <div class="card">
+      <!--<h2>🎭 Pemenang Kostum Terbaik</h2>
+      <p id="kostumWinner" class="muted">Memuat…</p>
+      <p class="small muted">Kostum dinilai panitia, pemenang diumumkan di panggung dan mendapat souvenir.</p>-->
+      <h2 style="margin-top:16px">Peserta</h2>
+      <p class="muted small">Peserta dapat mendaftar event yang ingin diikuti melalui sistem: Pendaftaran, Pembayaran, Race Pack, Medali. Login dengan akun demo di halaman Masuk.</p>
+    </div>
+  </section>
+</main>
+<footer class="footer"><div class="container">RunFest — prototipe statis. Pembayaran masih simulasi.</div></footer>
+<script src="scripts/data.js"></script><script src="scripts/auth.js"></script><script src="scripts/script.js"></script>
+</body></html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Admin — RunFest v2</title>
+<link rel="stylesheet" href="../styles/style.css"><link rel="stylesheet" href="../styles/dashboard.css">
+</head>
+<body>
+<header class="topbar"><div class="container topbar-inner">
+  <a class="logo" href="../index.html">🏃 RUN<span>FEST</span></a>
+  <input type="checkbox" id="navToggle" class="nav-toggle">
+  <label for="navToggle" class="hamburger" aria-label="Buka menu">☰</label>
+  <nav class="nav" id="authArea">
+    <a href="../index.html">Beranda</a><a href="dashboard.html" class="active">Dashboard</a><a href="events.html">Kelola Event</a><a href="pendaftaran.html">Pendaftaran</a><a href="racepack.html">Race Pack</a><a href="medali.html">Medali</a><a href="lomba.html">Lomba</a><a href="podium.html">Podium</a>
+  </nav>
+</div></header>
+<main class="container" style="padding-top:24px">
+  <h1 style="margin:0">Dashboard Admin</h1>
+  <p class="muted">Semua event, semua meja kerja, dalam satu tempat. Klik kartu untuk membuka meja kerjanya.</p>
+  <section class="card" style="margin:16px 0"><label style="margin-top:0">Event yang ditampilkan</label><select id="eventSelect"></select></section>
+  <section class="grid grid4" style="margin:16px 0">
+    <a class="card stat" href="pendaftaran.html"><b id="sResmi">–</b><p>Peserta resmi (lunas)</p><p class="small muted" id="sResmiNote"></p><span class="lihat">Ke Pendaftaran →</span></a>
+    <a class="card stat" href="racepack.html"><b id="sRacepack">–</b><p>Sudah ambil race pack</p><span class="lihat">Ke Race Pack →</span></a>
+    <a class="card stat" href="lomba.html"><b id="sFinish">–</b><p>Sudah finish</p><span class="lihat">Ke Lomba →</span></a>
+    <a class="card stat" href="medali.html"><b id="sMedali">–</b><p>Sudah ambil medali</p><span class="lihat">Ke Medali →</span></a>
+  </section>
+  <section class="card" style="margin-bottom:16px">
+    <h3>Progres & Pendapatan (event terpilih)</h3>
+    <p>Total pendaftar: <b id="sTotal">–</b> • Belum bayar: <b id="sPending">–</b> • Pendapatan dari yang lunas: <b id="sRevenue">–</b></p>
+    <div class="bar-row"><span style="width:150px">Lunas</span><div class="bar"><i id="barLunas" style="width:0%"></i></div><b id="tLunas">0%</b></div>
+    <div class="bar-row" style="margin-top:8px"><span style="width:150px">Race pack</span><div class="bar blue"><i id="barRacepack" style="width:0%"></i></div><b id="tRacepack">0%</b></div>
+    <div class="bar-row" style="margin-top:8px"><span style="width:150px">Medali</span><div class="bar green"><i id="barMedali" style="width:0%"></i></div><b id="tMedali">0%</b></div>
+  </section>
+  <section class="card">
+    <div class="toolbar">
+      <div><label>Kategori</label><select id="fKategori"><option value="">Semua</option></select></div>
+      <div><label>Pembayaran</label><select id="fBayar"><option value="">Semua</option><option value="lunas">Lunas</option><option value="pending">Belum bayar</option></select></div>
+      <div><label>Status</label><select id="fStatus"><option value="">Semua</option><option value="belum-daftarulang">Belum daftar ulang</option><option value="racepack">Sudah race pack</option><option value="finish">Sudah finish</option><option value="medali">Sudah medali</option></select></div>
+      <div><label>Cari nama / BIB / invoice</label><input id="fCari" placeholder="cth: Budi / RF-101 / INV-2027-001"></div>
+      <div style="flex:0"><button class="btn ghost" id="btnReset">Reset Data Demo</button></div>
+    </div>
+    <p class="small muted" id="countRow" style="margin-top:14px"></p>
+    <div style="overflow:auto"><table>
+      <thead><tr><th>Peserta</th><th>Kategori</th><th>Harga / Invoice</th><th>Bayar</th><th>Daftar Ulang</th><th>Race Pack</th><th>Finish</th><th>Medali</th><th>Juara / Kostum</th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table></div>
+  </section>
+</main>
+<script src="../scripts/data.js"></script><script src="../scripts/auth.js"></script><script src="../scripts/dashboard.js"></script>
+</body></html>

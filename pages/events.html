@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kelola Event & Kategori — RunFest v2</title>
+<link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+<header class="topbar"><div class="container topbar-inner">
+  <a class="logo" href="../index.html">🏃 RUN<span>FEST</span></a>
+  <input type="checkbox" id="navToggle" class="nav-toggle">
+  <label for="navToggle" class="hamburger" aria-label="Buka menu">☰</label>
+  <nav class="nav" id="authArea">
+    <a href="../index.html">Beranda</a><a href="dashboard.html">Dashboard</a><a href="events.html" class="active">Kelola Event</a><a href="podium.html">Podium</a>
+  </nav>
+</div></header>
+<main class="container" style="padding-top:24px">
+  <h1 style="margin:0">Kelola Event & Kategori</h1>
+  <p class="muted">Hanya admin. Buat RunFest 2027, 2028, dan seterusnya, lalu atur kategorinya (HM, FM, dll) beserta harganya.</p>
+  <div id="msg" style="margin:12px 0"></div>
+  <section class="grid grid2">
+    <div class="card">
+      <h2>Buat Event Baru</h2>
+      <form id="formEvent">
+        <label>Nama event</label><input id="evNama" required placeholder="RunFest 2029">
+        <label>Tanggal</label><input type="date" id="evTanggal" required>
+        <label>Lokasi</label><input id="evLokasi" required placeholder="Lapangan Utama">
+        <label>Status awal</label><select id="evStatus"><option value="draft">Draft</option><option value="aktif">Aktif</option><option value="selesai">Selesai</option></select>
+        <button class="btn" style="margin-top:14px" type="submit">+ Buat Event</button>
+      </form>
+    </div>
+    <div class="card">
+      <h2>Tambah Kategori</h2>
+      <form id="formKategori">
+        <label>Event</label><select id="katEventSelect"></select>
+        <label>Nama kategori</label><input id="katNama" required placeholder="Half Marathon (HM)">
+        <div class="form-row">
+          <div><label>Jarak</label><input id="katJarak" required placeholder="21K"></div>
+          <div><label>Kuota</label><input type="number" id="katKuota" value="500" min="1" required></div>
+        </div>
+        <label>Harga (Rp)</label><input type="number" id="katHarga" required min="0" placeholder="375000">
+        <button class="btn" style="margin-top:14px" type="submit">+ Tambah Kategori</button>
+      </form>
+      <p class="small muted">Harga yang diubah di sini hanya berlaku untuk pendaftar baru. Harga peserta lama tidak berubah.</p>
+    </div>
+  </section>
+  <section class="card" style="margin-top:16px">
+    <h2>Daftar Event</h2>
+    <div style="overflow:auto"><table>
+      <thead><tr><th>Event</th><th>Tanggal / Lokasi</th><th>Status</th><th>Peserta</th><th>Aksi</th></tr></thead>
+      <tbody id="eventTbody"></tbody>
+    </table></div>
+  </section>
+  <section class="card" style="margin-top:16px">
+    <h2>Kategori per Event</h2>
+    <label>Event</label><select id="katListEventSelect"></select>
+    <div style="overflow:auto"><table>
+      <thead><tr><th>Kategori</th><th>Jarak</th><th>Harga</th><th>Kuota</th><th>Terdaftar</th><th>Aksi</th></tr></thead>
+      <tbody id="katTbody"></tbody>
+    </table></div>
+  </section>
+</main>
+<script src="../scripts/data.js"></script><script src="../scripts/auth.js"></script><script src="../scripts/events-admin.js"></script>
+</body></html>

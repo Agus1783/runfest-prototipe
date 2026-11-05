@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daftar Event — RunFest v2</title>
+<link rel="stylesheet" href="styles/style.css"><link rel="stylesheet" href="styles/auth.css">
+</head>
+<body>
+<header class="topbar"><div class="container topbar-inner">
+  <a class="logo" href="index.html">🏃 RUN<span>FEST</span></a>
+  <input type="checkbox" id="navToggle" class="nav-toggle">
+  <label for="navToggle" class="hamburger" aria-label="Buka menu">☰</label>
+  <nav class="nav" id="authArea"><a href="index.html">Beranda</a><a href="pages/podium.html">Podium</a><a href="login.html">Masuk</a></nav>
+</div></header>
+<main class="container"><div class="auth-wrap" style="max-width:560px"><div class="auth-card">
+  <span class="kicker">Pendaftaran langsung</span><h1>Daftar Event</h1>
+  <p class="muted small">Pilih event dan kategori, harga tampil otomatis. Setelah daftar kamu dapat invoice dan bisa bayar (simulasi) di dashboard peserta.</p>
+  <div id="msg"></div>
+  <form id="formDaftar">
+    <label>Event</label><select id="eventSelect"></select>
+    <label>Kategori</label><select id="kategoriSelect"></select>
+    <div class="alert" id="hargaBox">Pilih kategori untuk melihat harga.</div>
+    <label>Nama lengkap</label><input id="nama" required>
+    <label>Email</label><input type="email" id="email" required>
+    <label>Password <span class="muted small">(untuk login; kalau email sudah punya akun, password harus sama)</span></label><input type="password" id="pass" required minlength="6">
+    <div class="form-row">
+      <div><label>Telepon</label><input id="telp" placeholder="08xx-xxxx-xxxx"></div>
+      <div><label>Ukuran kaos</label><select id="kaos"><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select></div>
+    </div>
+    <button class="btn" style="width:100%;justify-content:center;margin-top:18px" type="submit">Daftar & Buat Invoice →</button>
+  </form>
+</div></div></main>
+<script src="scripts/data.js"></script><script src="scripts/auth.js"></script><script src="scripts/daftar.js"></script>
+</body></html>
